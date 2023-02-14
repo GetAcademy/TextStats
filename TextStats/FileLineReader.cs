@@ -12,7 +12,12 @@
 
         public string GetNextLineOrNull()
         {
-            return _reader.ReadLine();
+            var line = _reader.ReadLine();
+            if (line == null)
+            {
+                _reader.Close();
+            }
+            return line;
         }
     }
 }
